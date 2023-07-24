@@ -258,6 +258,40 @@ func main() {
 
 ==================================================================================================================================================================
 
+* Logical Operators (Not)
+-------------------------
+	Our last logical operator is the not (!) operator. It negates (reverses) the value of a boolean. For example:
+
+		bored := true
+		fmt.Println(!bored) // Prints false
+ 
+		tired := false;
+		fmt.Println(!tired) // Prints true
+
+	Notice that the ! operator will either take a true value and pass back false, or it will take a false value and pass back true.
+
+	Let’s see how to incorporate the ! operator.
+
+main.go
+-------
+package main
+
+import "fmt"
+
+func main() {
+	readyToGo := true
+
+	if !readyToGo {
+		fmt.Println("Start the car!")
+	} else {
+		fmt.Println("What are we waiting for??")
+	}
+}
+
+==================================================================================================================================================================
+
+
+
 
 
 
