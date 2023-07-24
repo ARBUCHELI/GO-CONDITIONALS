@@ -1,0 +1,83 @@
+# LEARN GO: CONDITIONALS
+------------------------
+
+* What are Conditionals?
+------------------------
+	We make decisions every day based on certain conditions.
+
+	Is the alarm ringing? If so, turn it off. Is it raining? If so, bring an umbrella. Is the ice cream truck parked outside? If so, it’s time for a treat.
+
+	We can also implement this decision-making ability in our programs using conditionals. Conditionals check on values and, depending on their status (if the values turn out to be 
+	true or false), executes an appropriate block of code in response.
+
+	In this lesson we’ll cover:
+
+		. if, else if, and else statements.
+		
+		. comparison operators.
+
+		. logical operators.
+
+		. the switch statement.
+
+		. short declarations in conditionals.
+
+		. how to use conditionals in randomized conditions.
+
+	If you’re ready, Go on to the next exercise. Else, come back when you’re ready!
+
+==================================================================================================================================================================
+
+* The if Statement
+------------------
+	What if…? What if we’re hungry? If it’s raining? If the alarm’s ringing?
+
+	We would do something in response to these conditions.
+
+	if statements work very similarly to our own decision-making process. Let’s look at Go’s if statement:
+
+		alarmRinging := true
+		if alarmRinging {
+  			fmt.Println("Turn off the alarm!!") 
+		}
+
+	In our example, we have a variable alarmRinging that has a value of true. Then we have an if statement that checks if the condition next to the if keyword is true. Then we have an 
+	opening curly brace { with code inside followed by a closing curly brace }. If the condition is true, then the code in between the curly braces { } is executed. In this case, 
+	"Turn off the alarm!!" is printed to the console.
+
+	In our if statement we could have provided parentheses, like so:
+
+		if (alarmRinging) {
+  			fmt.Println("Turn off the alarm!!") 
+		}
+
+	The parentheses are optional and can make it easier to read, but typically, we’ll see the if statement written without parentheses.
+
+
+main.go
+-------
+package main
+
+import "fmt"
+
+func main() {
+	heistReady := true
+  if heistReady == true {
+    fmt.Println("Let's Go!")
+  }
+}
+
+==================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
+
