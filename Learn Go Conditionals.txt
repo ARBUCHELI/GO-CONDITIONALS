@@ -290,6 +290,51 @@ func main() {
 
 ==================================================================================================================================================================
 
+* The else if Statement
+-----------------------
+	We can add different conditions to our if...else statements using an else if statement. Adding an else if statement allows us to check another condition after our if statement 
+	checks its condition. In fact, we can add as many else if statements as we’d like to make more complex conditionals!
+
+	The else if statement always comes after an if statement. If we have an else statement, then the else if comes before it. The else if statement also takes a condition. Let’s take 
+	a look at the syntax:
+
+		position := 2
+ 
+		if position == 1 {
+  			fmt.Println("You won the gold!")
+		} else if position == 2 {
+  			fmt.Println("You got the silver medal.")
+		} else if position == 3 {
+  			fmt.Println("Great job on bronze.")
+		} else {
+  			fmt.Println("Sorry, better luck next time?")
+		}
+
+	Notice that we’re able to use else if statements to evaluate separate conditions and allow for different possible outcomes. if/else if/else statements are read from top to bottom, 
+	so the first condition that evaluates to true is the only block of code that gets executed.
+
+	In the example above, since position == 1 evaluates to false, the first block of code isn’t executed. Then, we get to our else if statement and position == 2 evaluates to true, 
+	the code inside the first else if statement is executed. The rest of the conditions are not evaluated. If none of the conditions evaluated to true, then the code in the else 
+	statement would have executed.
+
+main.go
+-------
+package main
+
+import "fmt"
+
+func main() {
+	amountStolen := 64650
+
+	if amountStolen > 1000000 {
+		fmt.Println("We've hit the jackpot!")
+  } else {
+		fmt.Println("Why did we even do this?")
+	}
+}
+
+==================================================================================================================================================================
+
 
 
 
