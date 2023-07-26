@@ -1,0 +1,345 @@
+ # PROJECT
+----------
+
+* LEARN GO: CONDITIONALS
+------------------------
+* Bank Heist
+------------
+	We often include conditionals for when we need to account for different situations and outcomes. When it comes to coming up with a plan and executing it, there’s nothing more 
+	uncertain than a bank heist! (Watch any robbery themed movie if you need convincing).
+
+	In this project, we’re going to use conditionals to simulate this situation along with hi-jinks and hiccups that may pop up. Who knows? Maybe, just maybe, if all goes well, we’ll 
+	have a few more dollars after.
+
+	Tasks
+	19/19 Complete
+	Mark the tasks as complete by checking them off
+	
+	* Setting up
+	------------
+	1.
+	Since we’re running a simulator, we are going to generate random numbers to mock up the uncertainty that comes with a minimally planned bank heist. To do that, we need to provide 
+	a unique seed value. In the main function, call:
+
+		rand.Seed(time.Now().UnixNano())
+
+	2.
+	We need a variable that keeps track of whether or not our heist is successful. Declare the boolean variable isHeistOn with a value of true.
+
+
+	Hint
+	You can use a short variable declaration or declare the variable and assign it a value later:
+
+		isHeistOn := true
+		Or
+
+		var isHeistOn bool
+		isHeistOn = true
+
+	3.
+	Create another variable, eludedGuards and assign it a value of rand.Intn(100). This variable will have a value between 0 and 99 and we’ll use it to simulate if we made it past the 
+	guards or not.
+
+
+	Hint
+	You can use a short variable declaration or declare the variable and assign it a value later:
+
+		eludedGuards := rand.Intn(100)
+
+		Or
+
+		var eludedGuards int
+		eludedGuards = rand.Intn(100)
+
+	First Conditional (Sneak past guards)
+	-------------------------------------
+	4.
+	Now we can create our first conditional. Let’s say that we have a 50% chance of making it past the guards.
+
+	Create an if statement that checks if eludedGuards is at least 50. Inside if block, add a print statement that confirms that the heist continues, e.g."Looks like you've managed to 
+	make it past the guards. Good job, but remember, this is the first step.". Be as creative as you’d like!
+
+
+	Hint
+	Here’s a refresher for the syntax for an if statement:
+
+		if someCondition {
+  			fmt.Println("This prints if someCondition evaluates to true!")
+		}
+
+	If you’re interested in the value of eludedGuards, you add a print statement outside of the if statement to check:
+
+		fmt.Println("eludedGuards has a value of", eludedGuards) 
+
+	5.
+	There’s a chance that we won’t make it past the guards in which case, we’ve failed.
+
+	We need to add an else condition to account for that. Inside the else block assign isHeistOn a value of false. Add another print statement that confirms the failure, e.g. "Plan a 
+	better disguise next time?".
+
+
+	Hint
+	Assigning isHeistOn a value of false will help for later conditions that need the heist to still be successful to continue.
+
+	6.
+	Below the if...else statement, add a print statement to view the current status of isHeistOn.
+
+	We’ll be adding the remaining code for this project above this recently added print statement to this line at the bottom of our main() function. This print statement allows us to 
+	keep track of isHeistOn‘s value as we manipulate it in later steps.
+
+	We can test our current program now by saving our code.
+
+
+	Hint
+	Your code should resemble:
+
+		if eludedGuards >= 50 {
+  			// ...
+		} else {
+ 			 // ...
+		}
+ 
+		fmt.Println("isHeistOn is currently:", isHeistOn)
+
+		We’ll add the remaining code after this if... else block and above the new print statement.
+
+	* Second Conditional (Open the vault)
+	-------------------------------------
+	7.
+	After the if...else statement and before the print statement, create a variable openedVault and assign it a random number between 0 and 99 using rand.Intn(100).
+
+	We’ll use this value to determine if we can open the vault.
+
+	8.
+	Let’s say that opening the vault is harder than sneaking past the guards and we only have a 30% chance of doing it.
+
+	Create an if statement that checks if isHeistOn is true and if openedVault is at least 70.
+
+	Inside the if block, add a print statement that states that the vault has been opened, e.g. "Grab and GO!".
+
+
+	Hint
+	Use the && operator to check for both conditions:
+
+		if firstExp && secondExp {
+  			fmt.Println("Both conditions are true!")
+		}
+
+	9.
+	We need to account for failure, add an else if statement that only checks isHeistOn. To meet this condition, this means that up until this point, isHeistOn is true, but 
+	openedVault is less than 70 (so we couldn’t open the vault).
+
+	Inside the else if block:
+
+		assign false to isHeistOn.
+		add a print statement that says the vault can’t be opened.
+
+	Save the code and see how the heist is progressing!
+
+
+	Hint
+	If we only added an else statement, isHeistOn could be false, so we could have seen two failure messages in a row:
+
+		Plan a better disguise next time?
+		What's the combo to this lock again??
+
+	Which logically doesn’t make sense since robbers can’t get to the vault if they didn’t make it past the guards!
+
+	* Third Conditional (Leaving)
+	-----------------------------
+	10.
+	We still need to leave with the money without getting caught by any of the bank’s security. Just think about any sensory alarms, security cameras, extra guards, cops, or anything 
+	else that can stop us!
+
+	Like we’ve done before, we’ll use a random number that represents possible outcomes. Under the previous conditional, create a variable leftSafely that has a value of rand.Intn(5) 
+	to account for five different situations.
+
+	11.
+	Create another if statement that checks if isHeistOn still evaluates to true.
+
+	We’ll add the code for previously mentioned five situations inside this newly added if statement.
+
+	12.
+	Inside the if block, add a switch statement that checks leftSafely.
+
+
+	Hint
+	Your code should resemble:
+
+		if isHeistOn {
+  			switch leftSafely {
+  			// case statements will go here
+  			}
+		}
+
+	13.
+	Add a case statement that matches leftSafely having a value of 0. We’ll use this case as an instance of an unsuccessful heist.
+
+	In the case statement:
+
+		assign isHeistOn a value of false
+		add a print statement that contains a failed heist message.
+
+	Hint
+	This case could look like:
+
+		case 0: 
+  			isHeistOn = false 
+  			fmt.Print("Looks like you tripped an alarm... run?")  
+
+	14.
+	Add up to 3 more case statements which indicate an unsuccessful heist. For instance, we can add:
+
+		case 1: 
+  			isHeistOn = false 
+  			fmt.Print("Turns out vault doors don't open from the inside...")  
+
+	Create as many cases as you want for failure, but remember, we want to leave at least a slight chance of a successful heist!
+
+
+	Hint
+	You can create up to 4 case statements in total, from 0 to 3 since rand.Intn(5) returns a random value from 0 to 4 and we want to allow for at least one value for our default 
+	statement.
+
+	In each case statement assign isHeistOn to false and a print statement that indicates a failed heist.
+
+	Here are some failure messages to get your creativity going:
+
+		. When did they start raising dogs in vaults??
+		. Looks like this fingerprint scanner won’t accept any fingerprint…
+		. Did I even pack the burlap bags?
+
+	15.
+	After the case statements, add a default statement that prints a success message, e.g. "Start the getaway car!".
+
+	Check the current outcome by saving the code!
+
+
+	Hint
+	Your structure of your code should look resemble:
+
+		if isHeistOn {
+  			switch leftSafely {
+  				case 0:
+    					isHeistOn = false
+    					fmt.Println("Failed")
+  				case 1:
+    					isHeistOn = false 
+    					fmt.Print("Turns out vault doors don't open from the inside...")  
+  				case 2:
+     					// Code for another failure
+  				case 3:
+     					// Code for another failure
+  				default:
+    					fmt.Println("Start the getaway car!")
+  			}
+		}
+
+	* Wrapping up
+	-------------
+	16.
+	Under the conditional we used to check if we safely left, add another if statement that checks isHeistOn.
+
+	17.
+	Inside the if statement, create a variable amtStolen and assign it 10000 + rand.Intn(1000000).
+
+	We’ll use amtStolen to simulate how much was in the vault at the time of our heist.
+
+
+	Hint
+	In the instructions, 10000 + rand.Intn(1000000) is assigned to amtStolen, but feel free to use any minimum and maximum values you want!
+
+	18.
+	Still inside the latest if statement, add a print statement to show how much was taken!
+
+	Save the code to see the overall outcome of the bank heist.
+
+
+	Hint
+	It can be as simple as printing out the amtStolen variable
+
+		fmt.Println(amtStolen)
+
+		Or you can add in some commentary:
+
+		fmt.Println("$", amtStolen, "not bad!")
+
+	19.
+	Great job implementing a series of conditional statements that created a flow of logic. Run the program a few times and see how your heists go!
+
+	If you want to challenge yourself:
+
+		. Change the maximum generated values and then adjust conditionals in response.
+
+		. Add more conditionals that account for more scenarios, e.g.
+			. What time of day is it?
+
+			. Does that affect the heist?
+
+			. Do the number of guards matter?
+
+
+main.go
+-------
+package main
+
+import (
+  "fmt"
+  "math/rand"
+  "time"
+)
+
+func main() {
+  rand.Seed(time.Now().UnixNano())
+  isHeistOn := true
+  eludedGuards := rand.Intn(100)
+
+  if eludedGuards >= 50 {
+    fmt.Println("Looks like you've managed to make it past the guards. Good job, but remember, this is the first step.")
+  } else {
+      isHeistOn = false
+      fmt.Println("Plan a better disguise next time?")
+  }
+
+  openedVault := rand.Intn(100)
+
+  if isHeistOn == true && openedVault >= 70 {
+    fmt.Println("Grab and GO!")
+  } else if isHeistOn {
+      isHeistOn = false
+      fmt.Println("The vault can't be opened")
+  }
+
+  leftSafely := rand.Intn(5)
+  if isHeistOn {
+    switch leftSafely {
+      case 0:
+        isHeistOn = false
+        fmt.Println("Looks like you tripped an alarm... run?")
+
+      case 1:
+        isHeistOn = false
+        fmt.Println("Turns out vault doors don't open from the inside...")
+
+      case 2:
+        isHeistOn = false
+        fmt.Println("When did they start raising dogs in vaults??")
+
+      case 3:
+        isHeistOn = false
+        fmt.Println("Looks like this fingerprint scanner won't accept any fingerprint...")
+
+      default:
+        fmt.Println("Start the getaway car!")
+    }
+  }
+
+  if isHeistOn {
+    amtStolen := 10000 + rand.Intn(1000000)
+    fmt.Println("Woow, we stole $", amtStolen)
+  }
+
+  fmt.Println("isHeiston is currently:", isHeistOn)
+}
+
+
